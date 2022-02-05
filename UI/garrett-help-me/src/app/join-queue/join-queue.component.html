@@ -1,0 +1,40 @@
+<div>
+  <!-- angular form that has a required name field and a required comment field  -->
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field [color]="'primary'">
+      <mat-label for="name">Name</mat-label>
+      <input
+        id="name"
+        matInput
+        formControlName="name"
+        type="text"
+        maxlength="120"
+      />
+    </mat-form-field>
+    <mat-form-field [color]="'primary'">
+      <mat-label for="phone">Phone Number</mat-label>
+      <input
+        id="phone"
+        matInput
+        formControlName="phone"
+        type="numbers"
+        maxlength="120"
+      />
+    </mat-form-field>
+    <mat-form-field [color]="'primary'">
+      <mat-label for="comment">Comments</mat-label>
+      <input
+        id="comment"
+        matInput
+        formControlName="comment"
+        type="text"
+        maxlength="120"
+      />
+    </mat-form-field>
+    </form>
+</div>
+
+<div>
+  <button (click)="onSubmit()" mat-raised-button color="accent">Join!</button>
+</div>
+res from server -> {{text}}

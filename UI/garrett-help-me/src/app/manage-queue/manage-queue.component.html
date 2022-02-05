@@ -1,0 +1,8 @@
+
+<div *ngFor="let item of data">
+  <app-item [item]="item"></app-item>
+</div>
+<div>
+  <p></p>
+  <button (click)="refresh()" mat-raised-button color="accent">refresh</button>
+</div>
