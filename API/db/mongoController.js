@@ -25,13 +25,13 @@ async function add(details) {
 async function getAll() {
   return new Promise((resolve, reject) => {
     MongoClient.connect(url, function(err, db) {
-      if (err) throw err;
+      if (err) reject(err);
       var dbo = db.db("mydb");
-      dbo.collection("customers").find({}).toArray(function(err, res) {
-        if (err) throw err;
-        console.log("getting all items: ", res);
+      dbo.collection("customers").find({}).toArray(function(err, response) {
+        if (err) reject(err);
+        console.log("getting all items: ", response);
         db.close();
-        resolve(sortOldestFirst(res));
+        resolve(sortOldestFirst(response));
       });
     });
   });
@@ -52,6 +52,7 @@ async function getNext() {
   });
 }
 
+// dont actually delete it. move it to another collection
 async function complete(id) {
   return new Promise((resolve, reject) => {
     MongoClient.connect(url, function(err, db) {

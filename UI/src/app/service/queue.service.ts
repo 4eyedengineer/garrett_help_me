@@ -9,7 +9,7 @@ export class JoinQueueService {
   constructor(private httpClient: HttpClient ) { }
 
   getHelloWorld() {
-      return this.httpClient.get('http://localhost:3000/hello-world');
+      return this.httpClient.get('http://localhost:3000/getAll');
   }
 
   getNext() {
