@@ -18,11 +18,11 @@ import { ItemComponent } from './manage-queue/item/item.component';
 @NgModule({
   declarations: [
     AppComponent,
-      JoinQueueComponent,
-      ManageQueueComponent,
-      DashboardComponent,
-      LoginComponent,
-      ItemComponent
+    JoinQueueComponent,
+    ManageQueueComponent,
+    DashboardComponent,
+    LoginComponent,
+    ItemComponent
    ],
   imports: [
     BrowserModule,
