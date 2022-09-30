@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { JoinQueueComponent } from './join-queue/join-queue.component';
 import { LoginComponent } from './login/login.component';
 import { ManageQueueComponent } from './manage-queue/manage-queue.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ItemComponent } from './manage-queue/item/item.component';
 
@@ -20,7 +19,6 @@ import { ItemComponent } from './manage-queue/item/item.component';
     AppComponent,
       JoinQueueComponent,
       ManageQueueComponent,
-      DashboardComponent,
       LoginComponent,
       ItemComponent
    ],

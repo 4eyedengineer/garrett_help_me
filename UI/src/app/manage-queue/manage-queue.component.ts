@@ -23,4 +23,14 @@ export class ManageQueueComponent implements OnInit {
 
   }
 
+  getNext() {
+    //just testing
+    this.service.getNext().subscribe((x: any) => console.log("next ticket:", x.text));
+  }
+
+  add() {
+    // this.service.addToQueue().subscribe();
+  }
+
+
 }
