@@ -17,10 +17,10 @@ import { ItemComponent } from './manage-queue/item/item.component';
 @NgModule({
   declarations: [
     AppComponent,
-      JoinQueueComponent,
-      ManageQueueComponent,
-      LoginComponent,
-      ItemComponent
+     JoinQueueComponent,
+     ManageQueueComponent,
+     LoginComponent,
+     ItemComponent,
    ],
   imports: [
     BrowserModule,
