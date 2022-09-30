@@ -1,4 +1,5 @@
-const express = require('express')
+// const express = require('express')
+import { Express as express } from 'express'
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const dbCtrl = require('./db/mongoController')

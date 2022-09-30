@@ -1,6 +1,6 @@
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
-// var url = "mongodb://dangus.lake:27017/";
+var url = require('./connection.config');
+import { databaseURL as url } from "./connection.config"
 
 async function add(details) {
   return new Promise((resolve, reject) => {
