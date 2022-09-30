@@ -6,3 +6,24 @@
   <p></p>
   <button (click)="refresh()" mat-raised-button color="accent">refresh</button>
 </div>
+<div>
+  <div>
+    <button routerLink="/join-queue" mat-raised-button color="accent">Join the Q!</button>
+  </div>
+  <div>
+    <p></p>
+    <button mat-raised-button routerLink="/please" color="accent">Login</button>
+  </div>
+  <div>
+    <p></p>
+    <button routerLink="/manager" mat-raised-button color="accent">Manager</button>
+  </div>
+  <div>
+    <p></p>
+    <button (click)="getNext()" mat-raised-button color="accent">get next</button>
+  </div>
+  <div>
+    <p></p>
+    <button (click)="add()" mat-raised-button color="accent">add to queue</button>
+  </div>
+</div>
