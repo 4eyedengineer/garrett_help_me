@@ -1,8 +1,7 @@
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
-// var url = "mongodb://dangus.lake:27017/";
+import MongoClient from 'mongodb';
+import { databaseURL as url } from "./connection.config.js"
 
-async function add(details) {
+export async function add(details) {
   return new Promise((resolve, reject) => {
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
@@ -22,7 +21,7 @@ async function add(details) {
     });
   });
 }
-async function getAll() {
+export async function getAll() {
   return new Promise((resolve, reject) => {
     MongoClient.connect(url, function(err, db) {
       if (err) reject(err);
@@ -37,7 +36,7 @@ async function getAll() {
   });
 }
 
-async function getNext() {
+export async function getNext() {
   return new Promise((resolve, reject) => {
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
@@ -53,7 +52,7 @@ async function getNext() {
 }
 
 // dont actually delete it. move it to another collection
-async function complete(id) {
+export async function complete(id) {
   return new Promise((resolve, reject) => {
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
@@ -70,11 +69,4 @@ async function complete(id) {
 
 function sortOldestFirst(array) {
   return array.sort((a, b) => new Date(a.created_on) - new Date(b.created_on));
-}
-
-module.exports = {
-  getAll,
-  getNext,
-  add,
-  complete
 }
