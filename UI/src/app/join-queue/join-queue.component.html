@@ -1,5 +1,51 @@
+<!--new layout view for join queue-->
 <div>
-  <!-- angular form that has a required name field and a required comment field  -->
+  <h1 class="form-title">Let Garrett Help You</h1>
+
+  <div class="content">
+    <!-- angular form that has a required name field and a required comment field  -->
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-queue">
+      <mat-form-field>
+        <input 
+        id="name" 
+        formControlName="name"
+        type="text"
+        maxlength="120"
+        matInput 
+        placeholder="your name" 
+        required />
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+      <mat-form-field>
+        <input 
+        id="phone"
+        formControlName="phone"
+        type="numbers"
+        maxlength="120"
+        matInput 
+        placeholder="your phone number" 
+        required />
+        <mat-icon matSuffix>call</mat-icon>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea 
+        id="comment"
+        matInput 
+        placeholder="your error/issuse" 
+        required>
+        </textarea>
+        <mat-icon matSuffix>save</mat-icon>
+      </mat-form-field>
+      <br />
+      <button (click)="onSubmit()" mat-raised-button color="accent">Join! <i class="material-icons">send</i></button>
+    </form>
+  </div>
+</div>
+
+
+
+
+<!--<div>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-form-field [color]="'primary'">
       <mat-label for="name">Name</mat-label>
@@ -36,5 +82,5 @@
 
 <div>
   <button (click)="onSubmit()" mat-raised-button color="accent">Join!</button>
-</div>
+</div>-->
 res from server -> {{text}}

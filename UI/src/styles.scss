@@ -2,3 +2,45 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.form-title {
+    padding-top: 20px;
+    margin: 0;
+    text-align: center;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  .form-queue {
+    width: 50%;
+    background-color: #636e72;
+    padding: 30px;
+    border-radius: 8px;
+  
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+
+  .mat-focused .mat-form-field-label {
+    color: white !important;
+  }
+  
+  .mat-input-element {
+    caret-color: white !important;
+  }
+  
+  .mat-form-field-ripple {
+    background-color: white !important;
+  }
+
+  textarea {
+    resize: none !important;
+  }
+  
