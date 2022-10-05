@@ -22,4 +22,4 @@
 Thumbs.db
 
 # Configs
-./db/connection.config.js
+connection.config.js
