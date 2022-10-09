@@ -3,42 +3,75 @@
   <h1 class="form-title">Let Garrett Help You</h1>
 
   <div class="content">
+    <mat-card>
     <!-- angular form that has a required name field and a required comment field  -->
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-queue">
-      <mat-form-field>
-        <input 
-        id="name" 
-        formControlName="name"
-        type="text"
-        maxlength="120"
-        matInput 
-        placeholder="your name" 
-        required />
-        <mat-icon matSuffix>person</mat-icon>
-      </mat-form-field>
-      <mat-form-field>
-        <input 
-        id="phone"
-        formControlName="phone"
-        type="numbers"
-        maxlength="120"
-        matInput 
-        placeholder="your phone number" 
-        required />
-        <mat-icon matSuffix>call</mat-icon>
-      </mat-form-field>
-      <mat-form-field>
-        <textarea 
-        id="comment"
-        matInput 
-        placeholder="your error/issuse" 
-        required>
-        </textarea>
-        <mat-icon matSuffix>save</mat-icon>
-      </mat-form-field>
-      <br />
-      <button (click)="onSubmit()" mat-raised-button color="accent">Join! <i class="material-icons">send</i></button>
-    </form>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <input 
+          id="name" 
+          formControlName="name"
+          type="text"
+          maxlength="120"
+          matInput 
+          placeholder="your name" 
+          required />
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error *ngIf="name.hasError('required')">Your name is <strong>required</strong></mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input 
+          id="phone"
+          formControlName="phone"
+          type="numbers"
+          maxlength="120"
+          matInput 
+          placeholder="your phone number" 
+          required />
+          <mat-icon matSuffix>call</mat-icon>
+          <mat-error *ngIf="phone.hasError('required')">Your phone number is <strong>required</strong></mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input 
+          id="email"
+          formControlName="email"
+          type="email"
+          maxlength="120"
+          matInput 
+          placeholder="your email address" 
+          required />
+          <mat-icon matSuffix>email</mat-icon>
+          <!--<mat-error *ngIf="email.hasError('required')">Your email is <strong>required</strong></mat-error>-->
+        </mat-form-field>
+        <label>Ticket Type:</label>
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button value="feature"> New Feature</mat-radio-button>
+          <mat-radio-button value="bug"> Bug</mat-radio-button>
+          <mat-radio-button value="comment"> Comments</mat-radio-button>
+          <mat-radio-button value="assistant"> Need Assistant</mat-radio-button>
+        </mat-radio-group>
+        <!--<mat-form-field>
+          <input 
+          id="screenshot"
+          formControlName="screenshot"
+          type="file"
+          matInput 
+          />
+        </mat-form-field>-->
+        <mat-form-field>
+          <textarea 
+          id="comment"
+          formControlName="comment"
+          matInput 
+          placeholder="your error/issuse" 
+          required>
+          </textarea>
+          <mat-icon matSuffix>save</mat-icon>
+          <mat-error *ngIf="comment.hasError('required')">Please let us know what the issue is so we can best help you</mat-error>
+        </mat-form-field>
+        <br /><br />
+        <button (click)="onSubmit()" mat-raised-button color="accent">Join! <i class="material-icons">send</i></button>
+      </form>
+    </mat-card>
   </div>
 </div>
 
