@@ -1,0 +1,23 @@
+button {
+  img {
+      width: 1.25em;
+  }
+}
+
+h5 {
+  margin: 12px 0;
+}
+
+:host {
+  text-align: center;
+}
+
+.logout {
+  padding-top: 5em;
+}
+
+.login {
+  >div {
+    margin: 16px 0px;
+  }
+}
