@@ -1,3 +1,36 @@
-<button routerLink="/join-queue" mat-raised-button color="accent">user</button>
-<button routerLink="/manage" mat-raised-button color="accent">manage</button>
+<main>
+  <div class="login">
+    <h1>Login</h1>
 
+    <div class="google-login">
+      <button mat-raised-button appGoogleSignin>
+        <img src="/assets/google-logo.svg" /> Login with Google
+      </button>
+    </div>
+    
+    <div class="github-login">
+      <button mat-raised-button appGoogleSignin>
+        <img src="/assets/github-logo.svg" /> Login with Github
+      </button>
+    </div>
+    
+
+    <h5>OR</h5>
+
+    <app-email-login></app-email-login>
+  </div>
+
+  <div class="logout">
+    <p>
+      <!-- Logged in as <strong>{{ user.email }}</strong> -->
+    </p>
+
+    <button mat-stroked-button (click)="navigateToEdit()">Continue</button>
+  </div>
+
+  <div>
+    <!-- temp buttons -->
+    <button routerLink="/join-queue" mat-raised-button color="accent">user</button>
+    <button routerLink="/manage" mat-raised-button color="accent">manage</button>
+  </div>
+</main>
