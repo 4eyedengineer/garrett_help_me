@@ -1,31 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoginService } from 'src/app/service/login.service';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { LoginService } from "src/app/service/login.service";
 
 @Component({
-  selector: 'app-email-login',
-  templateUrl: './email-login.component.html',
-  styleUrls: ['./email-login.component.scss']
+  selector: "app-email-login",
+  templateUrl: "./email-login.component.html",
+  styleUrls: ["./email-login.component.scss"],
 })
 export class EmailLoginComponent implements OnInit {
-
   form: FormGroup;
 
-  type: 'login' | 'signup' | 'reset' = 'signup';
+  type: "login" | "signup" | "reset" = "signup";
   loading = false;
 
   serverMessage: string;
 
-  constructor(private fb: FormBuilder, private loginService: LoginService) {}
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private loginService: LoginService
+  ) {}
 
   ngOnInit() {
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: [
-        '',
-        [Validators.minLength(6), Validators.required]
-      ],
-      passwordConfirm: ['', []]
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", [Validators.minLength(6), Validators.required]],
+      passwordConfirm: ["", []],
     });
   }
 
@@ -34,30 +35,30 @@ export class EmailLoginComponent implements OnInit {
   }
 
   get isLogin() {
-    return this.type === 'login';
+    return this.type === "login";
   }
 
   get isSignup() {
-    return this.type === 'signup';
+    return this.type === "signup";
   }
 
   get isPasswordReset() {
-    return this.type === 'reset';
+    return this.type === "reset";
   }
 
   get email() {
-    return this.form.get('email');
+    return this.form.get("email");
   }
   get password() {
-    return this.form.get('password');
+    return this.form.get("password");
   }
 
   get passwordConfirm() {
-    return this.form.get('passwordConfirm');
+    return this.form.get("passwordConfirm");
   }
 
   get passwordDoesMatch() {
-    if (this.type !== 'signup') {
+    if (this.type !== "signup") {
       return true;
     } else {
       return this.password.value === this.passwordConfirm.value;
@@ -65,7 +66,6 @@ export class EmailLoginComponent implements OnInit {
   }
 
   async onSubmit() {
-
     this.loading = true;
 
     const email = this.email.value;
@@ -78,15 +78,15 @@ export class EmailLoginComponent implements OnInit {
         await this.loginService.createUserWithEmailAndPassword(email, password);
       } else if (this.isPasswordReset) {
         await this.loginService.sendPasswordResetEmail(email);
-        this.serverMessage = 'Check your email';
+        this.serverMessage = "Check your email";
       }
     } catch (err) {
-      if (err.code === 'auth/email-already-in-use') {
+      if (err.code === "auth/email-already-in-use") {
         await this.tryLogin(email, password);
       }
       this.serverMessage = err;
     }
-
+    this.router.navigate(["/join-queue"]);
     this.loading = false;
   }
 
