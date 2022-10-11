@@ -11,11 +11,10 @@ app.use(express.json());
 
 // User related APIs
 app.post('/login', async (req, res) => {
-  console.log('login')
   try {
     res.cookie('login-cookie-test',123);
-    const loginStatus = await login(req.body);
-    console.log('login status', loginStatus);
+    await login(req.body);
+    // todo: send back JWT
     res.sendStatus(200);
   } catch (error) {
     res.sendStatus(401); 
@@ -23,7 +22,6 @@ app.post('/login', async (req, res) => {
 })
 
 app.post('/signUp', async (req, res) => {
-  console.log('sign up',req.body);
   try {
     await signup(req.body);
     res.sendStatus(200); 
@@ -34,19 +32,18 @@ app.post('/signUp', async (req, res) => {
 
 // Queue related APIs
 app.get('/getAll', async (req, res) => {
-  const temp = await getAll();
-  console.log('temp', temp);
+  const allTickets = await getAll();
+  console.log('temp', allTickets);
   res.send({text: await getAll()})
 })
 
 app.get('/getNext', async (req, res) => {
-  const temp = await getNext();
-  console.log('next', temp);
+  const nextTicket = await getNext();
+  console.log('next', nextTicket);
   res.send({text: await getNext()})
 })
 
 app.post('/addToQueue', async (req, res) => {
-  console.log(req.body);
   try {
     const result = await add(req.body);
     res.sendStatus(200); 
