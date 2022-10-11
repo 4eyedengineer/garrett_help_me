@@ -86,7 +86,6 @@ export class EmailLoginComponent implements OnInit {
       }
       this.serverMessage = err;
     }
-    this.router.navigate(["/join-queue"]);
     this.loading = false;
   }
 
