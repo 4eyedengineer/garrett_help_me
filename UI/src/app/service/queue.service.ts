@@ -1,35 +1,34 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { environment } from "../../environments/environment";
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class JoinQueueService {
-
-  constructor(private httpClient: HttpClient ) { }
+  constructor(private httpClient: HttpClient) {}
 
   getHelloWorld() {
-      return this.httpClient.get('http://localhost:3000/getAll');
+    return this.httpClient.get(`${environment.API}/getAll`);
   }
 
   getNext() {
-    return this.httpClient.get('http://localhost:3000/getNext');
+    return this.httpClient.get(`${environment.API}/getNext`);
   }
 
   addToQueue(queue) {
-    return this.httpClient.post('http://localhost:3000/addToQueue', {
-      name: queue.name,
-      phone: queue.phone,
-      notes: queue.comment,
-      created_on: new Date()
-    },
-    {
-      responseType: 'text'
-    });
+    return this.httpClient.post(
+      `${environment.API}/addToQueue`,
+      {
+        name: queue.name,
+        phone: queue.phone,
+        notes: queue.comment,
+        created_on: new Date(),
+      },
+      {
+        responseType: "text",
+      }
+    );
   }
 
-  complete() {
-
-  }
-
+  complete() {}
 }
