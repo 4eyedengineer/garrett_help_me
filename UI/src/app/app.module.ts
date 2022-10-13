@@ -6,6 +6,7 @@ import { MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -34,6 +35,7 @@ import { EmailLoginComponent } from './login/email-login/email-login.component';
     MatButtonModule,
     MatIconModule,
     MatRadioModule,
+    MatSidenavModule,
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
