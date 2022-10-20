@@ -4,7 +4,7 @@ Built in mind with the sole purpose of helping others, this project is a basic q
 
 ## Features
 
-- 1st party sign in (planned)
+- 1st party sign in (done)
 - 3rd party sign in (planned)
 - Join queue (planned)
 - Leave queue (planned)
@@ -15,13 +15,20 @@ Built in mind with the sole purpose of helping others, this project is a basic q
 - Account management (planned)
 
 ## Application Structure
-The app is built with an Angular frontend and a Node backend.  Node connects to a MongoDB database.
+
+The app is built with an Angular frontend and a Node backend. Node connects to a MongoDB database.
 
 ## Running the app
+
+install packages in both `UI` and `API` directories
+`npm i`
+
 You should have a monogoDB up and running, prior to starting the backend.
 
-### webapp: 
-```cd UI && ng serve```
+### webapp:
+
+`cd UI && ng serve`
+
 ### backend:
 
-`cd API && node index.js`
+`cd API && npm run start`
