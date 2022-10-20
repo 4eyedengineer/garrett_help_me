@@ -22,6 +22,7 @@ export class JoinQueueService {
         name: queue.name,
         phone: queue.phone,
         notes: queue.comment,
+        email: queue.email,
         created_on: new Date(),
       },
       {

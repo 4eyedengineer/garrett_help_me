@@ -10,6 +10,7 @@ export async function add(details) {
         name: details.name,
         phone: details.phone,
         notes: details.notes,
+        email: details.email,
         created_on: new Date()
       };
       dbo.collection("customers").insertOne(myobj, function(err, res) {

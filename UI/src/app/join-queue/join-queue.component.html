@@ -45,7 +45,7 @@
             placeholder="your email address" 
             required />
             <mat-icon matSuffix>email</mat-icon>
-            <!--<mat-error *ngIf="email.hasError('required')">Your email is <strong>required</strong></mat-error>-->
+            <mat-error *ngIf="email.hasError('required')">Your email is <strong>required</strong></mat-error>
           </mat-form-field>
           <label>Ticket Type:</label>
           <mat-radio-group aria-label="Select an option">
@@ -66,7 +66,7 @@
             <mat-error *ngIf="comment.hasError('required')">Please let us know what the issue is so we can best help you</mat-error>
           </mat-form-field>
           <br /><br />
-          <button (click)="onSubmit()" mat-raised-button color="accent">Join The Queue! <i class="material-icons">send</i></button>
+          <button type="submit" mat-raised-button color="accent">Join The Queue! <i class="material-icons">send</i></button>
           <span class="middle-spacer"></span>
           <button type="button" mat-raised-button (click)="drawer.toggle()">See Current Queue</button>
         </form>
