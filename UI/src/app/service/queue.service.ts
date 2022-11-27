@@ -1,14 +1,17 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { environment } from "../../environments/environment";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class JoinQueueService {
   constructor(private httpClient: HttpClient) {}
+  options = {
+    withCredentials: true,
+  };
 
   getHelloWorld() {
-    return this.httpClient.get(`${environment.API}/getAll`);
+    return this.httpClient.get(`${environment.API}/getAll`, this.options);
   }
 
   getNext() {
@@ -26,7 +29,7 @@ export class JoinQueueService {
         created_on: new Date(),
       },
       {
-        responseType: "text",
+        responseType: 'text',
       }
     );
   }
