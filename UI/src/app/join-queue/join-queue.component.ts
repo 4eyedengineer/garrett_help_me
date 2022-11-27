@@ -19,6 +19,7 @@ export class JoinQueueComponent implements OnInit {
       name: ['', [Validators.required]],
       comment: ['', [Validators.required]],
       phone: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
     });
     this.service.getHelloWorld()
       .subscribe((arg: any) => {
@@ -39,6 +40,9 @@ export class JoinQueueComponent implements OnInit {
     return this.form.get('phone');
   }
 
+  get email() {
+    return this.form.get('email');
+  }
 
  
 
@@ -46,7 +50,8 @@ export class JoinQueueComponent implements OnInit {
     const name = this.name.value;
     const comment = this.comment.value;
     const phone = this.phone.value;
-    this.service.addToQueue({name, comment, phone}).subscribe();
+    const email = this.email.value;
+    this.service.addToQueue({name, comment, phone, email}).subscribe();
   }
 
 

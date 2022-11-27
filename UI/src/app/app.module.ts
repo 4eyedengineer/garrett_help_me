@@ -4,8 +4,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatRadioModule } from '@angular/material/radio';
+import {MatIconModule} from '@angular/material/icon';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -35,6 +36,7 @@ import { Router } from '@angular/router';
     MatButtonModule,
     MatIconModule,
     MatRadioModule,
+    MatSidenavModule,
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
